@@ -98,12 +98,12 @@ public class ControllerServlet extends HttpServlet {
 	private void updateBook(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException{
 		int id = Integer.parseInt( request.getParameter("id") );
-		String title = request.getParameter("title");
-		String author = request.getParameter("author");
+		String title = request.getParameter("booktitle");
+		String author = request.getParameter("bookauthor");
 		float bookPrice = Float.parseFloat("bookprice");
 		
-		Book book = new Book(id, title, author, bookPrice);
-		bookDAO.updateBook(book);
+		Book newBookObject = new Book(id, title, author, bookPrice);
+		bookDAO.updateBook(newBookObject);
 		response.sendRedirect("list");
 	}
 
