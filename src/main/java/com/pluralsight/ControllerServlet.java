@@ -100,10 +100,10 @@ public class ControllerServlet extends HttpServlet {
 		int id = Integer.parseInt( request.getParameter("id") );
 		String title = request.getParameter("booktitle");
 		String author = request.getParameter("bookauthor");
-		float bookPrice = Float.parseFloat("bookprice");
+		String bookPrice = request.getParameter("bookprice");
 		
-		Book newBookObject = new Book(id, title, author, bookPrice);
-		bookDAO.updateBook(newBookObject);
+		Book newBook = new Book(id, title, author, Float.parseFloat(bookPrice));
+		bookDAO.updateBook(newBook);
 		response.sendRedirect("list");
 	}
 
